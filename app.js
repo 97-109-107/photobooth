@@ -10,6 +10,7 @@ var http = require('http');
 var path = require('path');
 var io = require('socket.io');
 var watch = require('watch');
+var common    = require('./routes/common')
 
 var app = express();
 
@@ -19,7 +20,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
 app.use(express.logger('dev'));
-app.use(express.bodyParser());
+app.use(express.bodyParser({ keepExtensions: true, uploadDir: __dirname + '/photos' }));
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -46,6 +47,9 @@ app.get('/photos', function(req, res){
 app.get('/photos/:path', function(req, res){
     res.sendfile(photoDir + '/' + req.param('path'));
 });
+
+app.get('/upload', common.imageForm);
+app.post('/upload', common.uploadImage);
 
 server = http.createServer(app);
 
