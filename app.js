@@ -30,11 +30,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-if (process.argv.length < 3) {
-    exit('Please pass the photo dir');
-}
-
-var photoDir = process.argv[ process.argv.length - 1]
+var photoDir = "./photos/"
 var photoExtensions = ['png', 'jpg', 'gif'];
 
 app.get('/', routes.index);
