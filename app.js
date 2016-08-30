@@ -11,13 +11,17 @@ var path = require('path');
 var io = require('socket.io');
 var watch = require('watch');
 var common    = require('./routes/common')
+var exphbs  = require('express-handlebars');
 
 var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+app.set('view engine', 'handlebars');
+
+app.engine('handlebars', exphbs());
+
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser({ keepExtensions: true, uploadDir: __dirname + '/photos' }));
@@ -33,7 +37,9 @@ if ('development' == app.get('env')) {
 var photoDir = "./photos/"
 var photoExtensions = ['png', 'jpg', 'gif'];
 
-app.get('/', routes.index);
+app.get('/', function(req, res){
+  res.render('index');
+});
 
 app.get('/photos', function(req, res){
     var photoList = new photos.list(photoDir, photoExtensions);

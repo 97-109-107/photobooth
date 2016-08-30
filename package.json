@@ -5,10 +5,10 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express":      "3.4.0",
-    "jade":         "*",
-    "socket.io":    "*",
-    "watch":        "*"
+    "express": "3.4.0",
+    "express-handlebars": "^3.0.0",
+    "jade": "*",
+    "socket.io": "*",
+    "watch": "*"
   }
 }
-

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Photo Booth</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            .m-t-sm { margin-top:20px; }
+            .m-b-sm { margin-bottom:20px; }
+            img {max-width: 100%;}
+            .accented {
+                border: none;
+                background-color: rgb(233, 167, 133);
+            }
+            .accented:hover {
+                background-color: gray;
+            }
+            body: {margin-bottom: 3em;}
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="m-t-sm jumbotron">
+                <img src="./images/logo.png" alt="CIID10">
+                <div class="m-t-sm m-b-sm form-group">
+                <form action="/upload" method="post" enctype="multipart/form-data" class="">
+                    <h2 class="">Upload a photo to the slideshow</h2>
+                    <label for="exampleInputFile"></label>
+                    <input type="file" multiple name="image" id="">
+                    <button type="submit" value="Upload" class="m-t-sm btn btn-primary accented btn-lg btn-block">Submit</button>
+                </div>
+        </div>
+    </form>
+    </div>
+</body>
+
+
+</html>
