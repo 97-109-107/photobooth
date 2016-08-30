@@ -34,7 +34,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-var photoDir = "./photos/"
+var photoDir = "photos/"
 var photoExtensions = ['png', 'jpg', 'gif'];
 
 app.get('/', function(req, res){
